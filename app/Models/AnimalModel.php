@@ -6,5 +6,6 @@ class AnimalModel extends Model {
 
     protected $table = 'animales';
     protected $allowedFields = ['nombre','comida','edad'];
+    
 
 }

@@ -7,15 +7,14 @@ class AnimalController extends BaseController {
     
     public function index() {
 
-      $datos=array(
-        
-        'nombre'=>"pipirisnais el león",
-        'comida'=>"carne roja",
-        'edad'=>"15"
+      $animalModelo= new AnimalModel();
 
-      );
+      $datosBuscados=$animalModelo->asObject()->findAll();
 
-		  return view('vistaAnimal',$datos);
+      $datosParaLaVista=array('animales'=>$datosBuscados);
+
+     return view('vistaAnimal',$datosParaLaVista);
+      
     }
 
     public function crear() {
@@ -38,7 +37,7 @@ class AnimalController extends BaseController {
 
     }
 
-   
+  
     
 
 	//--------------------------------------------------------------------

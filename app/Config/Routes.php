@@ -37,6 +37,11 @@ $routes->post('/animales/crear', 'AnimalController::crear');
 
 
 
+
+
+
+
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
