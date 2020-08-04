@@ -84,12 +84,25 @@
 
                     <div class="col mb-4">
                         <div class="card h-100">
-                        <img src="<?php echo($valor->url) ?>" class="card-img-top" alt="...">
+                        <img src="<?= base_url('public/img/safari.png') ?>" class="card-img-top" alt="imagen">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo($valor->nombre) ?></h5>
                                 <p><?php echo($valor->nombre." Es un animal de: ".$valor->edad." años") ?></p>
-                                <a href="" class="btn btn-danger">Eliminar</a>
-                                
+                                <a href="<?php echo(base_url('public/animales/eliminar/'.$valor->id))?>" class="btn btn-danger">Eliminar</a>
+                                <a class="btn btn-info" data-toggle="collapse" href="#formulario<?php echo($valor->id)?>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    Actualizar
+                                </a>
+                                <div class="collapse" id="formulario<?php echo($valor->id) ?>">
+                                    <form action="<?php echo(base_url('public/animales/modificar/'.$valor->id))?>" method="POST" class="mt-3">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="comida2" name="comida2" value="<?php echo($valor->comida)?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="edad2" name="edad2" value="<?php echo($valor->edad)?>">
+                                        </div>
+                                        <button type="submit" class="btn btn-info btn-block" id="envio2" name="envio2">Enviar</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

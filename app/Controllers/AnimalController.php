@@ -37,6 +37,33 @@ class AnimalController extends BaseController {
 
     }
 
+    public function eliminar($id){
+      
+      $animalModelo= new AnimalModel();
+
+      $animalModelo->where('id',$id)->delete();
+      
+      return redirect()->to(base_url('public/animales'));
+
+    }
+
+    public function modificar($id){
+
+      $animalModelo= new AnimalModel();
+
+      
+      $comida=$this->request->getPost('comida2');
+      $edad=$this->request->getPost('edad2');
+
+      $animalModelo->update($id,[
+        'comida'=>$comida,
+        'edad'=>$edad
+      ]);
+
+      return redirect()->to(base_url('public/animales'));
+
+    }
+
   
     
 
